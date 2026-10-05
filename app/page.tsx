@@ -59,7 +59,7 @@ export default function Home() {
             type="button"
             onClick={toggleSound}
             aria-label={isMuted ? "Aktifkan suara" : "Matikan suara"}
-            className="absolute bottom-4 right-4 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md transition hover:bg-black/80"
+            className="absolute bottom-20 right-4 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md transition hover:bg-black/80"
           >
             {isMuted ? (
               <svg
