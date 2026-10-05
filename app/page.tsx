@@ -50,7 +50,7 @@ export default function Home() {
             Tidak crop dan tidak dipaksa memenuhi lebar.
         */}
         <div className="relative flex h-[100dvh] w-full items-center justify-center overflow-hidden bg-black">
-          <div className="relative h-full max-h-full w-auto aspect-[9/16]">
+          <div className="relative w-full aspect-[9/16] sm:h-full sm:w-auto sm:aspect-[9/16]">
             <video
               ref={videoRef}
               className="block h-full w-full object-contain"
