@@ -1,6 +1,20 @@
+"use client";
+
+import { useRef, useState } from "react";
+
 export default function Home() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isMuted, setIsMuted] = useState(true);
+
+  const toggleSound = () => {
+    if (!videoRef.current) return;
+
+    videoRef.current.muted = !videoRef.current.muted;
+    setIsMuted(videoRef.current.muted);
+  };
+
   return (
-    <main className="min-h-screen bg-[#020711] text-white overflow-x-hidden">
+    <main className="min-h-screen overflow-x-hidden bg-[#020711] text-white">
       {/* HERO TEXT */}
       <section className="relative flex min-h-[55vh] flex-col items-center justify-center px-6 py-20 text-center">
         <div className="absolute inset-0 -z-0 bg-[radial-gradient(circle_at_50%_35%,rgba(0,220,255,0.14),transparent_42%)]" />
@@ -30,12 +44,51 @@ export default function Home() {
       <section className="flex justify-center px-4 pb-20 sm:px-6">
         <div className="relative w-full max-w-[520px] overflow-hidden rounded-2xl border border-cyan-400/20 bg-black shadow-[0_0_60px_rgba(0,200,255,0.12)]">
           <video
+            ref={videoRef}
             className="block h-auto w-full"
             src="/video-si.mp4"
-            controls
+            autoPlay
+            loop
+            muted
             playsInline
             preload="metadata"
           />
+
+          {/* SOUND BUTTON */}
+          <button
+            type="button"
+            onClick={toggleSound}
+            aria-label={isMuted ? "Aktifkan suara" : "Matikan suara"}
+            className="absolute bottom-4 right-4 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md transition hover:bg-black/80"
+          >
+            {isMuted ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                className="h-5 w-5"
+              >
+                <path d="M11 5 6 9H2v6h4l5 4V5Z" />
+                <path d="m23 9-6 6" />
+                <path d="m17 9 6 6" />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                className="h-5 w-5"
+              >
+                <path d="M11 5 6 9H2v6h4l5 4V5Z" />
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+              </svg>
+            )}
+          </button>
         </div>
       </section>
 
