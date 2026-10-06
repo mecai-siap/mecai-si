@@ -41,64 +41,65 @@ export default function Home() {
           </p>
         </div>
       </section>
-{/* VIDEO CINEMATIC */}
-<section className="relative flex w-full justify-center bg-[#020711]">
-  <div className="relative flex w-full items-center justify-center overflow-hidden bg-black sm:h-[100dvh] sm:w-full">
-    {/* VIDEO FRAME */}
-    <div className="relative w-full sm:h-full sm:w-auto sm:aspect-[9/16]">
-      <video
-        ref={videoRef}
-        className="block h-auto w-full sm:h-full sm:w-full sm:object-contain"
-        src="/video-si.mp4"
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="metadata"
-      />
 
-      {/* CINEMATIC OVERLAY */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#020711]/35 via-transparent to-[#020711]/10" />
+      {/* VIDEO CINEMATIC */}
+      <section className="relative flex w-full justify-center bg-[#020711]">
+        <div className="relative flex w-full items-center justify-center overflow-hidden bg-black sm:h-[100dvh] sm:w-full">
+          {/* VIDEO FRAME */}
+          <div className="relative aspect-[9/16] w-full max-w-full sm:h-full sm:w-auto">
+            <video
+              ref={videoRef}
+              className="absolute inset-0 block h-full w-full object-contain"
+              src="/video-si.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+            />
 
-      {/* SOUND BUTTON */}
-      <button
-        type="button"
-        onClick={toggleSound}
-        aria-label={isMuted ? "Aktifkan suara" : "Matikan suara"}
-        className="absolute right-3 top-3 z-20 flex h-9 w-9 items-center justify-center rounded-lg border border-cyan-300/25 bg-[#061522]/55 text-cyan-200 shadow-[0_0_12px_rgba(0,220,255,0.10)] backdrop-blur-md transition-all duration-300 hover:border-cyan-200/45 hover:bg-[#082033]/70 hover:shadow-[0_0_18px_rgba(0,220,255,0.16)]"
-      >
-        {isMuted ? (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            className="h-4 w-4"
-          >
-            <path d="M11 5 6 9H2v6h4l5 4V5Z" />
-            <path d="m23 9-6 6" />
-            <path d="m17 9 6 6" />
-          </svg>
-        ) : (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            className="h-4 w-4"
-          >
-            <path d="M11 5 6 9H2v6h4l5 4V5Z" />
-            <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
-            <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
-          </svg>
-        )}
-      </button>
-    </div>
-  </div>
-</section>
-     
+            {/* CINEMATIC OVERLAY */}
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#020711]/35 via-transparent to-[#020711]/10" />
+
+            {/* SOUND BUTTON */}
+            <button
+              type="button"
+              onClick={toggleSound}
+              aria-label={isMuted ? "Aktifkan suara" : "Matikan suara"}
+              className="absolute right-3 top-3 z-20 flex h-9 w-9 items-center justify-center rounded-lg border border-cyan-300/25 bg-[#061522]/55 text-cyan-200 shadow-[0_0_12px_rgba(0,220,255,0.10)] backdrop-blur-md transition-all duration-300 hover:border-cyan-200/45 hover:bg-[#082033]/70 hover:shadow-[0_0_18px_rgba(0,220,255,0.16)]"
+            >
+              {isMuted ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  className="h-4 w-4"
+                >
+                  <path d="M11 5 6 9H2v6h4l5 4V5Z" />
+                  <path d="m23 9-6 6" />
+                  <path d="m17 9 6 6" />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  className="h-4 w-4"
+                >
+                  <path d="M11 5 6 9H2v6h4l5 4V5Z" />
+                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+                </svg>
+              )}
+            </button>
+          </div>
+        </div>
+      </section>
+
       {/* DESCRIPTION */}
       <section className="px-6 pb-24 pt-16 text-center">
         <div className="mx-auto max-w-3xl">
